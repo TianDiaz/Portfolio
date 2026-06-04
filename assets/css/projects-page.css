@@ -1,0 +1,283 @@
+#projects-page{
+  position: relative;
+  min-height: 100vh;
+
+  overflow: hidden;
+}
+
+#projects-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+  repeating-linear-gradient(
+    to right,
+    transparent 0 var(--group-gap),
+    rgba(255,255,255,0.8) var(--group-gap),
+    rgba(255,255,255,0.8) calc(var(--group-gap) + var(--pair-width)),
+
+    transparent calc(var(--group-gap) + var(--pair-width)) calc(var(--group-gap) + var(--pair-width) + var(--pair-gap)),
+    rgba(255,255,255,0.8) calc(var(--group-gap) + var(--pair-width) + var(--pair-gap)),
+    rgba(255,255,255,0.8) calc(var(--group-gap) + 2 * var(--pair-width) + var(--pair-gap)),
+
+    transparent calc(var(--group-gap) + 2 * var(--pair-width) + var(--pair-gap)) calc(2 * var(--group-gap))
+  ),
+
+  repeating-linear-gradient(
+    to bottom,
+    #e6b873 0,
+    #e6b873 var(--bamboo-size),
+    #c9954f calc(var(--bamboo-size) + 1px),
+    #e6b873 calc(var(--bamboo-size) + 2px)
+  );
+
+  background-size:
+    calc(2 * var(--group-gap)) 100%,
+    100% calc(var(--bamboo-size) + 2px);
+}
+
+/* .projects-container {
+  position: relative;
+  min-height: 100vh;
+} */
+
+.projects-layout {
+  position: relative;
+  /* background: #f7f3ed; */
+  z-index: 1;
+}
+
+.project-menu-wrapper {
+  padding: 1rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-menu{
+  height: 100%;
+  background: #a82f26;
+  border: 1px solid #191919;
+  border-radius: 8px;
+  padding: 2rem;
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu-item {
+  position: relative;
+  padding: 1rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: white;
+  text-align: left;
+  font-size: 1rem;
+  border-radius: 16px;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.25s ease;
+
+  opacity: 0.7;
+}
+
+.menu-item:hover {
+  background: rgba(255,255,255,0.06);
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.menu-item.active {
+  background: rgba(255,255,255,0.10);
+  opacity: 1;
+}
+
+.menu-item.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: -10px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 4px;
+  height: 60%;
+
+  border-radius: 999px;
+
+  background: #e6b873;
+}
+
+.serving-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.project-plate {
+  display: grid;
+  position: relative;
+  grid-template-columns: 320px 1fr;
+  color: #373737;
+  width: min(1100px, 100%);
+  min-height: 540px;
+  border-radius: 36px;
+  padding: 2rem;
+  gap: 2.5rem;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      145deg,
+      #f8f4ee,
+      #efe7db
+    );
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease;
+
+}
+
+.project-plate::before {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 28px;
+  inset: 12px;
+  pointer-events: none;
+}
+
+.plate-image{
+  position: relative;
+}
+
+.plate-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.12);
+}
+
+.plate-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-category {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.project-title {
+  font-size: clamp(2rem, 4vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+.project-details {
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.project-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.project-tools span {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.06);
+  font-size: 0.9rem;
+}
+
+.project-plate.entering {
+  opacity: 0;
+
+  transform:
+    translate(-80px, 40px)
+    rotate(-2deg)
+    scale(0.96);
+}
+
+.project-plate.active {
+  opacity: 1;
+
+  transform:
+    translate(0,0)
+    rotate(0)
+    scale(1);
+}
+
+.project-plate.exiting {
+  opacity: 0;
+
+  transform:
+    translate(80px, -20px)
+    rotate(2deg)
+    scale(0.96);
+}
+
+.hands-layer {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+.hand {
+  position: absolute;
+
+  width: 180px;
+
+  opacity: 0;
+
+  transition:
+    transform 0.6s cubic-bezier(0.22,1,0.36,1),
+    opacity 0.3s ease;
+}
+
+.hand-left {
+  left: 18%;
+  bottom: 18%;
+
+  transform:
+    translateX(-120px)
+    rotate(-8deg);
+}
+
+.hand-right {
+  right: 18%;
+  bottom: 18%;
+
+  transform:
+    translateX(120px)
+    rotate(8deg);
+}
+
+.hands-visible .hand {
+  opacity: 1;
+
+  transform:
+    translateX(0)
+    rotate(0deg);
+}
