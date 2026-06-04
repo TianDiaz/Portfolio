@@ -152,22 +152,6 @@ html{
   scale: 1.1;
 }
 
-/* .chopsticks,
-.bowl {
-  transition: transform 0.3s ease, filter 0.3s ease;
-  will-change: transform;
-}
-
-.bento-stage:hover .chopsticks {
-  transform: translate(4px, -10px) rotate(26deg);
-  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.25));
-}
-
-.bento-stage:hover .bowl {
-  transform: translateY(-6px);
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.25));
-} */
-
 .bowl {
   position: absolute;
   width: 180px;
