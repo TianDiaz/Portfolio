@@ -283,6 +283,18 @@ html{
   flex: 1;
 }
 
+.hero-content .resume{
+  font-size: 1.5rem;
+  color: #faf9f6;
+}
+
+#resume-btn:hover{
+  color:#8f261f;
+  .bi-file-earmark-person{
+    color:#8f261f;
+  }
+}
+
 .hero-image{
   display: flex !important;
   flex-direction: column;
@@ -417,12 +429,20 @@ html{
   font-size: 2.5rem;
   margin-right: 8px;
   color: #faf9f6;
+  transition: all 0.2s ease !important;
+}
+
+.hero-content .bi{
+  font-size: 1.8rem;
+  margin-right: 8px;
+  color: #faf9f6;
+  transition: all 0.2s ease !important;
 }
 
 .contact .bi:hover {
   color: #cccccc;
   transform: scale(2.1);
-  transition: all 0.2s ease;
+  transition: all 0.2s ease !important;
 }
 
 .custom-popover {
